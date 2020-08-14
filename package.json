@@ -1,6 +1,6 @@
 {
   "name": "quickgitjs",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Simple JavaScript node package for interacting with local git repositories",
   "main": "index.js",
   "scripts": {
