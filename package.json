@@ -1,0 +1,23 @@
+{
+  "name": "quick-git-js",
+  "version": "1.0.0",
+  "description": "Simple JS node package for local git repo access",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/MarkKozel/quickgitjs.git"
+  },
+  "keywords": [
+    "git",
+    "js"
+  ],
+  "author": "Mark Kozel",
+  "license": "CC-BY-NC-SA-4.0",
+  "bugs": {
+    "url": "https://gitlab.com/MarkKozel/quickgitjs/issues"
+  },
+  "homepage": "https://gitlab.com/MarkKozel/quickgitjs#readme"
+}
