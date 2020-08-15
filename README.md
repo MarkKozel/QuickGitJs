@@ -1,7 +1,14 @@
 # Quick Git JS
-Simple JavaScript node package for interacting with local-remote git repositories
+*super beta verison. Did not mean to publish version 1.x.x. Consider it version 0.0.1*
 
-*Local-Remote* git repositories are Remote Repos, but stored on the local network, not on Git services like GitHub or GitLab
+## Simple JavaScript node package for interacting with local working git repositories
+
+
+
+Expects you have [git](https://git-scm.com/downloads) for your system installed and configured to run at the command-line
+
+Verify by opening a command-line terminal and typing ```git --version```. If you see a version number returned, you are good to go
+
 
 ## Classes
 
@@ -30,3 +37,7 @@ Expected results (*myMissingRepo.git* is missing and *otherRepo.git* is a real r
 { ready: false, error: './myMissingRepo.git is not a repo' }
 { ready: true, error: '' }
 ```
+
+
+### Version History
+1.0.x - Implement classes to read working repos for current branch

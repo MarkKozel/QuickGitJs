@@ -8,18 +8,18 @@ const path = require("path");
  */
 class RepoContainer {
   constructor(path, readOnly = true) {
-    this.path = path;
-    this.readOnly = readOnly;
-    this.ready = false;
-    this.error = "";
+    this._path = path;
+    this._readOnly = readOnly;
+    this._ready = false;
+    this._error = "";
 
-    this.ready = fs.existsSync(path + "/.git");
-    this.error = this.ready ? "" : `${path ? path : "null"} is not a repo`;
+    this._ready = fs.existsSync(this._path + "/.git");
+    this._error = this._ready ? "" : `${this._path ? this._path : "null"} is not a repo`;
 
   }
 
   isReady() {
-    return { ready: this.ready, error: this.error };
+    return { ready: this._ready, error: this._error };
   }
 }
 

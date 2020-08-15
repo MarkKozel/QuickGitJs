@@ -1,0 +1,1 @@
+[gitrepository-layout](https://git-scm.com/docs/gitrepository-layout)

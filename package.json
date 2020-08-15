@@ -1,10 +1,11 @@
 {
   "name": "quickgitjs",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "Simple JavaScript node package for interacting with local git repositories",
   "main": "index.js",
   "scripts": {
     "test": "jest tests",
+    "testWatch": "jest tests --watchAll",
     "doc": "node_modules/jsdoc/jsdoc.js  src/RepoContainer.js  -c jsdoc.config.json"
   },
   "repository": {
