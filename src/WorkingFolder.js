@@ -7,6 +7,7 @@ class WorkingFolder extends RepoContainer {
 
   constructor(path, readOnly = true) {
     super(path, readOnly);
+    
     if (this._imA !== 'working') {
       this._error = 'not a valid working repo'
       if (this._imA === 'remote') {

@@ -15,7 +15,7 @@ Verify by opening a command-line terminal and typing ```git --version```. If you
 *see JSDocs folder for API*
 
 ### RepoContainer
-Container for generic repository. Can be Working Directory or Local-Remote
+Container for generic repository. Can be Working Directory or Remote Repo
 
 **RepoContainer(path, readOnly)**
 >*path* to the existing repo
@@ -38,6 +38,15 @@ Expected results (*myMissingRepo.git* is missing and *otherRepo.git* is a real r
 { ready: true, error: '' }
 ```
 
+### WorkingFolder
+Container for working folder and local repository
+
+Inherits from RepoContainer
+
+**WorkingFolder(path, readOnly)**
+>*path* to the existing repo
+
+>(optional) *readOnly* boolean indicating if modifcations (commit, push, tag, branch) operations should be allowed, *Default is ```true```*
 
 ### Version History
 1.0.x - Implement classes to read working repos for current branch
