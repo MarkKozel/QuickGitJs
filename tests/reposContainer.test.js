@@ -10,11 +10,11 @@ describe("instate class", () => {
 describe("inheritence verification", () => {
   test("constructor values", () => {
     let working = new repoContainer("");
-    expect(working._ready).toBe(false);
-    expect(working._error).toBe("null is not a repo");
+    expect(working._imA).toBeNull();
+    expect(working._error).toBe("null is not a valid repo");
 
-    let working1 = new repoContainer("./zz_TestingRepos/working1");
-    expect(working1._ready).toBe(true);
+    let working1 = new repoContainer(__dirname + "/zz_TestingRepos/working1");
+    expect(working1._imA).toBe('working');
     expect(working1._error).toBeNull();
   });
 });
