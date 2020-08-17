@@ -10,3 +10,6 @@ exports.workingDir = function() {
 
 const repoContainer = require('./src/RepoContainer');
 exports.RepoContainer = repoContainer;
+
+const workingContainer = require('./src/WorkingContainer');
+exports.WorkingContainer = workingContainer;

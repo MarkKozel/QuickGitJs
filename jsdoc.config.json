@@ -4,7 +4,8 @@
   "source": {
     "include": [
       ".",
-      "./src"
+      "./src",
+      "./src/utils"
     ],
     "exclude": [
       "./node_modules",
@@ -16,7 +17,7 @@
   "sourceType": "module",
   "tags": {
     "allowUnknownTags": true,
-    "dictionaries": [
+    "dictionaries": [0--
       "jsdoc",
       "closure"
     ]

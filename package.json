@@ -1,30 +1,31 @@
 {
   "name": "quickgitjs",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "Simple JavaScript node package for interacting with local git repositories",
   "main": "index.js",
-  "scripts": {
-    "test": "jest tests",
-    "testWatch": "jest tests --watchAll",
-    "doc": "node_modules/jsdoc/jsdoc.js  src/RepoContainer.js  -c jsdoc.config.json"
-  },
+  "homepage": "https://gitlab.com/MarkKozel/quickgitjs#readme",
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/MarkKozel/quickgitjs.git"
   },
+  "bugs": {
+    "url": "https://gitlab.com/MarkKozel/quickgitjs/issues"
+  },
   "keywords": [
     "git",
-    "js"
+    "js",
+    "nodejs"
   ],
   "author": {
     "name": "Mark Kozel",
     "email": "development@markkozel.net"
   },
   "license": "CC-BY-NC-SA-4.0",
-  "bugs": {
-    "url": "https://gitlab.com/MarkKozel/quickgitjs/issues"
+  "scripts": {
+    "test": "jest tests",
+    "testWatch": "jest tests --watchAll",
+    "doc": "node_modules/jsdoc/jsdoc.js -c jsdoc.config.json"
   },
-  "homepage": "https://gitlab.com/MarkKozel/quickgitjs#readme",
   "devDependencies": {
     "jest": "^26.4.0",
     "jsdoc": "^3.6.5"

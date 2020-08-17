@@ -38,12 +38,12 @@ Expected results (*myMissingRepo.git* is missing and *otherRepo.git* is a real r
 { ready: true, error: '' }
 ```
 
-### WorkingFolder
+### WorkingContainer
 Container for working folder and local repository
 
 Inherits from RepoContainer
 
-**WorkingFolder(path, readOnly)**
+**WorkingContainer(path, readOnly)**
 >*path* to the existing repo
 
 >(optional) *readOnly* boolean indicating if modifcations (commit, push, tag, branch) operations should be allowed, *Default is ```true```*
