@@ -17,7 +17,7 @@
   "sourceType": "module",
   "tags": {
     "allowUnknownTags": true,
-    "dictionaries": [0--
+    "dictionaries": [
       "jsdoc",
       "closure"
     ]
