@@ -1,4 +1,5 @@
 const fs = require('fs');
+var path = require('path');
 
 exports.findTextInFile = function (file, txt) {
   try {
@@ -11,4 +12,8 @@ exports.findTextInFile = function (file, txt) {
   }
 
   return false;
+}
+
+exports.getProjRoot = function(){
+  return path.join(__dirname,'..', '..');
 }

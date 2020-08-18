@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const fileUtils = require("./utils/fileUtils");
+const BranchListContainer = require("./BranchListContainer");
 
 /**
  * @constructor
@@ -18,6 +19,8 @@ class RepoContainer {
     // this._ready = fs.existsSync(this._path + "/.git");
     this.checkPath();
     this._error = this._imA ? null : `${this._path ? this._path : "null"} is not a valid repo`;
+
+    this._branchList = new BranchListContainer();
   }
 
   /**

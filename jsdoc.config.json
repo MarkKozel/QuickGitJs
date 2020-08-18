@@ -4,8 +4,10 @@
   "source": {
     "include": [
       ".",
-      "./src",
-      "./src/utils"
+      "./src/BranchListContainer.js",
+      "./src/RepoContainer.js",
+      "./src/WorkingContainer.js",
+      "./src/utils/fileUtils.js"
     ],
     "exclude": [
       "./node_modules",
