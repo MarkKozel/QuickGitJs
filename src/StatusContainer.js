@@ -15,6 +15,9 @@ class StatusContainer {
     }
   }
 
+  /**
+   * Translates raw Git output into string and determines the current status
+   */
   cleanStatus() {
     this.shortStatus = {};
 
@@ -30,6 +33,12 @@ class StatusContainer {
     return this.shortStatus;
   }
 
+  /**
+   * Gets current status
+   * @param {*} path - path to repo
+   * @param {*} short - flag for short or regular status
+   * @returns raw status
+   */
   retrieveStatus(path, short = true) {
     let cmd = null;
     if (short) {
@@ -42,6 +51,11 @@ class StatusContainer {
     return this.rawStatus;
   }
 
+  /**
+   * Public method to request short status. Updfates status from repo
+   * @param {*} path - path to repo
+   * @returns short status
+   */
   getShortStatus(path) {
     this.retrieveStatus(path, true);
     this.shortStatus = this.cleanStatus();
@@ -49,6 +63,10 @@ class StatusContainer {
     return this.shortStatus;
   }
 
+  /**
+   * Pretty print of current short status
+   * @Pretty print of current short status
+   */
   shortStatusToString() {
     let result = '';
     if (this.shortStatus) {
