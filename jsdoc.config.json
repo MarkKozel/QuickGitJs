@@ -4,6 +4,7 @@
   "source": {
     "include": [
       ".",
+      "./src/StatusContainer.js",
       "./src/BranchListContainer.js",
       "./src/RepoContainer.js",
       "./src/WorkingContainer.js",
