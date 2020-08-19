@@ -32,38 +32,28 @@ class WorkingContainer extends RepoContainer {
     return base;
   }
 
-  /**
-   * Returns array of branches
-   * @returns { array } branches in working directory
-   */
-  getBranchList() {
-    let cmd = `git --git-dir ${this._path}/.git branch`;
-    const branch = execSync(cmd);
-    this._branchList.updateList(branch);
-    // let branchArray = branch.toString().split('\n')
-    // branchArray = branchArray.filter(e => e.trim() !== ''); //rm empty entries
-    // branchArray.map(str => str.trim()); //clean up entries
-    return this._branchList.getList();
-  }
-
-  // cleanupList(list){
-  //   // list = list.filter(e => e.trim() !== '');
-  //   for(let el in list){
-  //     list[parseInt(el)].trim();
-  //   }
+  // /**
+  //  * Returns array of branches
+  //  * @returns { array } branches in working directory
+  //  */
+  // getBranchList() {
+  //   let cmd = `git --git-dir=${this._path}/.git branch`;
+  //   const branch = execSync(cmd);
+  //   this._branchList.updateList(branch);
+  //   return this._branchList.getList();
   // }
+
   /**
    * Returns current branch
    * @returns { string } name of current branch
    */
   getCurrentBranch() {
-    this.getBranchList();
+    this._branchList.retrieveBranchList(this._path);
     return this._branchList.getCurrentBranch();
   }
 
   /**
-   * Checks out branchName. If branch exists, it is checked out. If is does not exist, it is created and checked out
-   * If repo was opened read-only, returns error
+   * Checks out branchName. If repo was opened read-only, returns error
    * @param {string} branchName 
    * @returns {json} result - contains status and message
    */
@@ -71,38 +61,35 @@ class WorkingContainer extends RepoContainer {
     let result = {
       status: "",
       statusCode: -1,
-      msg:""
+      msg: ""
     };
 
     if (!this._readOnly) {
-      let cmd = '';
-      let branchList = this.getBranchList();
-      if(this._branchList.getCurrentBranch() === branchName){
-        result.status="OK",
+      let switchResult = this._branchList.switchBranch(this._path, branchName)
+
+      if (switchResult === 'already there') {
+        result.status = "OK";
         result.statusCode = 0;
         result.msg = `Already on '${branchName}'`;
         return result;
-      }
-      let exists = this._branchList.branchExists(branchName);
-
-      if (exists) {
-        cmd = `git --git-dir ${this._path}/.git checkout ${branchName}`;
       } else {
-        cmd = `git --git-dir ${this._path}/.git checkout -b ${branchName}`;
+        result.status = "OK";
+        result.statusCode = 0;
+        result.msg = `Switched to branch '${branchName}'`;
+        return result;
       }
 
-      const branch = execSync(cmd);
-      let val= branch.toString();
-      result.status="OK",
-      result.statusCode = 0;
-      result.msg = `Switched to branch '${branchName}'`;
-        return result;
     } else {
-      result.status="ERROR",
+      result.status = "ERROR";
       result.statusCode = -1;
       result.msg = `${this._path} was opened read-only`;
     }
     return result;
+  }
+
+  getStatus() {
+    this._statusObj.getShortStatus(this._path);
+    return this._statusObj.shortStatusToString()
   }
 }
 

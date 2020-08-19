@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const fileUtils = require("./utils/fileUtils");
 const BranchListContainer = require("./BranchListContainer");
+const StatusContainer = require("./StatusContainer");
 
 /**
  * @constructor
@@ -21,6 +22,7 @@ class RepoContainer {
     this._error = this._imA ? null : `${this._path ? this._path : "null"} is not a valid repo`;
 
     this._branchList = new BranchListContainer();
+    this._statusObj = new StatusContainer();
   }
 
   /**

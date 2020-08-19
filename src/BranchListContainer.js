@@ -1,5 +1,15 @@
+const { execSync } = require('child_process');
+
+/**
+ * Used by Repo and Working containers to manage and process branch lists
+ * Returns from system calls to git is kinda messy. This class exists to hide that messiness
+ */
 class BranchListContainer {
   constructor(rawList = '') {
+    this.rawList = rawList;
+    this.branchArray = [];
+    this.currentBranchIndex = -1
+
     if (rawList) {
       this.rawList = rawList;
       this.cleanList()
@@ -38,6 +48,45 @@ class BranchListContainer {
       this.branchArray[i] = curBranch;
     }
   }
+
+  /**
+   * gets updated branch list, and updates rawList and branchArray
+   * @param {*} path - location of repo
+   * @returns raw branch list
+   */
+  retrieveBranchList(path) {
+    let cmd = `git --git-dir=${path}/.git branch`;
+    const branchList = execSync(cmd);
+    this.updateList(branchList);
+    return branchList;
+  }
+
+  /**
+   * Checks out branchName. If branch exists, it is checked out. If is does not exist, it is created and checked out
+   * @param {*} path - location of repo
+   * @param {*} branchName - name of branch to checkout
+   * @returns "already there" of branchName was already checked out, "ok" otherwise
+   */
+  switchBranch(path, branchName) {
+    let cmd = '';
+    this.retrieveBranchList(path);
+    if (this.getCurrentBranch() === branchName) {
+      return 'already there';
+    }
+    let exists = this._branchExists(branchName);
+
+    if (exists) {
+      cmd = `git --git-dir=${path}/.git checkout ${branchName}`;
+    } else {
+      cmd = `git --git-dir=${path}/.git checkout -b ${branchName}`;
+    }
+
+    const branch = execSync(cmd);
+    return 'ok';
+  }
+  /**
+   * returns list w/o update
+   */
   getList() {
     return this.branchArray;
   }
@@ -50,6 +99,10 @@ class BranchListContainer {
     return this.branchArray[this.currentBranchIndex];
   }
 
+  /**
+   * Return true if branchName exists, false otherwise
+   * @param {string} branchName - branch name to search
+   */
   branchExists(branchName) {
     return (this.branchArray.indexOf(branchName) > -1)
   }

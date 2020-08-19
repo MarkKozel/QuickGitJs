@@ -5,7 +5,7 @@ const path = require('path');
 
 let repoCont1 = new WorkingContainer(process.cwd(), true);
 console.log(repoCont1.isReady());
-console.log(repoCont1.getBranchList())
+// console.log(repoCont1.getBranchList())
 console.log(repoCont1.getCurrentBranch())
 
 
@@ -20,5 +20,6 @@ let repoCont3 = new WorkingContainer(path.join(fileUtils.getProjRoot(), "tests",
 if (repoCont3.isReady()) {
   console.log(repoCont3.getCurrentBranch())
   console.log(repoCont3.checkoutBranch('br1'));
-  console.log(repoCont3.getCurrentBranch())
+  console.log(repoCont3.getCurrentBranch());
+  console.log(repoCont3.getStatus())
 }
