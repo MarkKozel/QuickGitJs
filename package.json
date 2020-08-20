@@ -3,13 +3,13 @@
   "version": "1.1.0",
   "description": "Simple JavaScript node package for interacting with local git repositories",
   "main": "index.js",
-  "homepage": "https://gitlab.com/MarkKozel/quickgitjs#readme",
+  "homepage": "https://github.com/MarkKozel/quickgitjs#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/MarkKozel/quickgitjs.git"
+    "url": "git+https://github.com/MarkKozel/quickgitjs.git"
   },
   "bugs": {
-    "url": "https://gitlab.com/MarkKozel/quickgitjs/issues"
+    "url": "https://github.com/MarkKozel/quickgitjs/issues"
   },
   "keywords": [
     "git",
