@@ -73,5 +73,14 @@ Checked out br1 with result path/to/repo was opened read-only
 
 <br>
 
+### Near Future to-dos
+- Add tagging
+- Add Fetch and Pull
+
 ### Version History
+1.1.x - initial *release* with basic Working Folder/Local Repo functionality (get branch info, short status, checkout branch)
+
 1.0.x - Implement classes to read working repos for current branch
+
+### Historical Context
+World in knee-deep in a global pandemic, protests and riots opposing entrenched govenments (including the US), Webster's Dictionary is expected to retire the words *unprecedented times* (not really, but I wish), The US sits at the brink of massive change or realizing orwell's vision, and I sit coughing in my office as California burns...yet again

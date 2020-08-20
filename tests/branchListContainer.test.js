@@ -1,8 +1,8 @@
 const blContainer = require("../src/BranchListContainer");
 
-let goodlist = "* br1\n master\n"
-let goodlistExpected = ['br1', 'master'];
-let goodlist1 = "* br1\n* master\n br2\n br3\n"
+const goodlist = "* br1\n master\n"
+const goodlistExpected = ['br1', 'master'];
+const goodlist1 = "* br1\n* master\n br2\n br3\n"
 
   describe("instate class", () => {
     test("simple new", () => {
@@ -24,5 +24,10 @@ let goodlist1 = "* br1\n* master\n br2\n br3\n"
     test("list results", () => {
       let blCont = new blContainer(goodlist);
       expect(blCont.rawList).not.toBeUndefined();
+      expect(blCont.branchArray.length).toBe(2);
+      for(br in blCont.branchArray){
+        expect(blCont.branchArray[br]).toBe(goodlistExpected[br])
+      }
     });
+
   });

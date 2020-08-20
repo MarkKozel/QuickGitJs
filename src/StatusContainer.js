@@ -52,7 +52,7 @@ class StatusContainer {
   }
 
   /**
-   * Public method to request short status. Updfates status from repo
+   * Public method to request short status. Updates status from repo
    * @param {*} path - path to repo
    * @returns short status
    */
