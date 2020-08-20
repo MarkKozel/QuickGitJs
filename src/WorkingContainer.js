@@ -29,19 +29,9 @@ class WorkingContainer extends RepoContainer {
    */
   isReady() {
     let base = super.isReady();
+    this._logs.log(`repotered isReady with result ${base.repoType} and ${base.error}`);
     return base;
   }
-
-  // /**
-  //  * Returns array of branches
-  //  * @returns { array } branches in working directory
-  //  */
-  // getBranchList() {
-  //   let cmd = `git --git-dir=${this._path}/.git branch`;
-  //   const branch = execSync(cmd);
-  //   this._branchList.updateList(branch);
-  //   return this._branchList.getList();
-  // }
 
   /**
    * Returns current branch
@@ -84,9 +74,14 @@ class WorkingContainer extends RepoContainer {
       result.statusCode = -1;
       result.msg = `${this._path} was opened read-only`;
     }
+    this._logs.log(`Checked out ${branchName} with result ${result.msg}`);
     return result;
   }
 
+  /**
+   * Returns pretty print version of short status
+   * @returns {string} formatted short status
+   */
   getStatus() {
     this._statusObj.getShortStatus(this._path);
     return this._statusObj.shortStatusToString()

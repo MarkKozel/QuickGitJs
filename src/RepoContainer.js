@@ -3,6 +3,7 @@ const path = require("path");
 const fileUtils = require("./utils/fileUtils");
 const BranchListContainer = require("./BranchListContainer");
 const StatusContainer = require("./StatusContainer");
+const Logger = require('./Logger');
 
 /**
  * @constructor
@@ -23,6 +24,9 @@ class RepoContainer {
 
     this._branchList = new BranchListContainer();
     this._statusObj = new StatusContainer();
+    this._logs = new Logger();
+
+    this._logs.log("created");
   }
 
   /**
@@ -56,6 +60,10 @@ class RepoContainer {
 
   isReady() {
     return {repoType: this._imA, error: this._error};
+  }
+
+  getLog(){
+    return this._logs.getPrettyLogs()
   }
 }
 
