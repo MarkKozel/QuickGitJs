@@ -78,6 +78,7 @@ Checked out br1 with result path/to/repo was opened read-only
 - Add Fetch and Pull
 
 ### Version History
+1.1.1 - Moved to GitHub, like all the cool kids
 1.1.0 - initial *release* with basic Working Folder/Local Repo functionality (get branch info, short status, checkout branch)
 
 1.0.x - Implement classes to read working repos for current branch
