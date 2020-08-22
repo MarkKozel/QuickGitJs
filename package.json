@@ -11,7 +11,7 @@
   "bugs": {
     "url": "https://github.com/MarkKozel/quickgitjs/issues"
   },
-  "npmpackage":"https://www.npmjs.com/package/quickgitjs",
+  "npmpackage": "https://www.npmjs.com/package/quickgitjs",
   "keywords": [
     "git",
     "js",
@@ -25,10 +25,11 @@
   "scripts": {
     "test": "jest tests",
     "testWatch": "jest tests --watchAll",
-    "doc": "node_modules/jsdoc/jsdoc.js -c jsdoc.config.json"
+    "doc": "node_modules/jsdoc/jsdoc.js -c jsdoc.config.json",
+    "docs": "node_modules/documentation/bin/documentation.js build --format html --output docs --project-name 'Quick Git Js' --project-description 'Simple JavaScript node package for interacting with local working git repositories' --project-homepage 'https://www.npmjs.com/package/quickgitjs'"
   },
   "devDependencies": {
-    "jest": "^26.4.0",
-    "jsdoc": "^3.6.5"
+    "documentation": "^13.0.2",
+    "jest": "^26.4.0"
   }
 }
