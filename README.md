@@ -1,77 +1,73 @@
 # Quick Git JS
-*super beta verison. Did not mean to publish version 1.x.x. Consider it version 0.0.1*
 
-Simple JavaScript node package for interacting with local working git repositories
-
+Simple JavaScript node package for interacting with local working git repositories. Class-based modules that use node *child_process* to make sync systems call to git
 <br>
 
-Expects you have [git](https://git-scm.com/downloads) for your system installed and configured to run at the command-line
+>See API md file and JSDocs folder for details
+>
+>See INTERNALS md file for behind-the-scenes classes that support public classes
 
-Verify by opening a command-line terminal and typing ```git --version```. If you see a version number returned, you are good to go
+## Requires:
+- Node 12.x, maybe earlier
+- Git 2.x [git-scm downloads](https://git-scm.com/downloads) 
 
-<br>
+## Usage:
 
-## Classes
-
->see API md file and JSDocs folder for details
-
->Also see INTERNALS md file for behind-the-scenes classes that support public classes
-
-<br>
-
-### RepoContainer
-Base class container for generic repository. Contains member variables and functions associated with all git repos
-
-Can be instanciated, but not much fun
-
-<br>
-
-### WorkingContainer
-Container for working folder and local repository. Extends RepoContainer with functions and data to intereact with a local repo
-
->Inherits from RepoContainer
-
-Typical Usage:
+### Require:
+```javascipt
+const quickGitJs = require('quickgitjs')
+```
 ```javascipt
 const WorkingContainer = require('quickgitjs').WorkingContainer
-let repo = new WorkingContainer("path/to/repo", true);
+```
+### Instate object:
+```javascipt
+let repo = new quickGitJs.WorkingContainer(path, readOnly);
+```
+```javascipt
+let repo = new WorkingContainer(path, readOnly);
+```
+**arguments:**
+- dir - {string} path to working directory (contains working files and *.git* folder)
+- readOnly - {boolean} prevent/allow update operations, like commit, tag, checkout
 
+### Other Functions:
+```javascipt
 if (repo.isReady()) {
-  console.log(repo.getCurrentBranch());
-  console.log(repo.checkoutBranch('br1'));
-  console.log(repo.getStatus())
-  console.log(repo.getLog())
+  console.log("Get Current Branch:\n" + repo.getCurrentBranch());
+  console.log("Checkout:\n" + repo.checkoutBranch('br1'));
+  console.log("Status:\n" + repo.getStatus())
+  console.log("Log:\n" + repo.getLog())
 }
 ```
-OUTPUT:
+Output:
 
-```
+```javascript
+Get Current Branch:
 master
-```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'master' branch was current
 
-```javajsonscript
+Checkout:
 {
   status: 'ERROR',
   statusCode: -1,
   msg: 'path/to/repo was opened read-only'
 }
-```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ERROR becuase repo was opened 'readonly'
-```
+
+Status:
 D       1.txt
 ??      .gitignore
 ??      helloworld.js
-```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Short status with 1 deleted file and 2 untracked files
-```
+
+Log:
 created
 repotered isReady with result working and null
 Checked out br1 with result path/to/repo was opened read-only
 ```
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Log of action taken on this repo
+## License:
+[CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+Attribution-NonCommercial-ShareAlike 4.0 International
 
-<br>
+## Miscellany
 
 ### Near Future to-dos
 - Add tagging
@@ -79,6 +75,7 @@ Checked out br1 with result path/to/repo was opened read-only
 
 ### Version History
 1.1.1 - Moved to GitHub, like all the cool kids
+
 1.1.0 - initial *release* with basic Working Folder/Local Repo functionality (get branch info, short status, checkout branch)
 
 1.0.x - Implement classes to read working repos for current branch
