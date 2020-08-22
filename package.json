@@ -25,7 +25,6 @@
   "scripts": {
     "test": "jest tests",
     "testWatch": "jest tests --watchAll",
-    "doc": "node_modules/jsdoc/jsdoc.js -c jsdoc.config.json",
     "docs": "node_modules/documentation/bin/documentation.js build --format html --output docs --project-name 'Quick Git Js' --project-description 'Simple JavaScript node package for interacting with local working git repositories' --project-homepage 'https://www.npmjs.com/package/quickgitjs'"
   },
   "devDependencies": {
