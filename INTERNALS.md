@@ -29,3 +29,16 @@ Returns from system calls to git is kinda messy. This class exists to hide that 
 |**getShortStatus(path)**|Public method to request short status. Updfates status from repo||
 |**shortStatusToString()**|Pretty print of current short status|Pretty print of current short status|
 
+ ## utils/gitUtils
+Singleton class that executes systems call(s) to git
+
+**Member Variable:**
+- _instance - reference to *this* for singleton behavior
+- lastCmd - Holds last command
+- lastResult - Holds result of last command
+- lastError - Holds last error message
+
+|Function|Purpose|Notes|
+|-|-|-|
+|**constructor()**|Construtor. Inits object -or- returns existing object|A little *singleton* trickery in here. First *new* call will init member variables and *_instance* variable. Subsequent new calls will get *this* returned|
+|**execute(cmd, path = '')**|Makes system call to *git* with *cmd* and optional *path* parameters|Updates all the *last* member variables|
