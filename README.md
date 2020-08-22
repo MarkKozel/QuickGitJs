@@ -1,11 +1,7 @@
 # Quick Git JS
 
-Simple JavaScript node package for interacting with local working git repositories. Class-based modules that use node *child_process* to make sync systems call to git
+Simple JavaScript node package for interacting with local working git repositories. Class-based modules that use node *child_process* to make [sync systems calls](https://nodejs.org/api/child_process.html#child_process_synchronous_process_creation) to git
 <br>
-
->See API md file and JSDocs folder for details
->
->See INTERNALS md file for behind-the-scenes classes that support public classes
 
 ## Requires:
 - Node 12.x, maybe earlier

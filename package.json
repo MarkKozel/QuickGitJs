@@ -11,6 +11,7 @@
   "bugs": {
     "url": "https://github.com/MarkKozel/quickgitjs/issues"
   },
+  "npmpackage":"https://www.npmjs.com/package/quickgitjs",
   "keywords": [
     "git",
     "js",
