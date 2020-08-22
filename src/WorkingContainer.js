@@ -1,5 +1,3 @@
-const { execSync } = require('child_process');
-
 const RepoContainer = require('./RepoContainer');
 
 const fs = require("fs");
@@ -7,7 +5,7 @@ const path = require("path");
 
 /**
  * @constructor
- * @param {string} path - location of targer repo
+ * @param {string} path - location of target repo
  * @param {boolean} readOnly - flag to allow or prevent updates to this repo
  */
 class WorkingContainer extends RepoContainer {
@@ -29,7 +27,7 @@ class WorkingContainer extends RepoContainer {
    */
   isReady() {
     let base = super.isReady();
-    this._logs.log(`repotered isReady with result ${base.repoType} and ${base.error}`);
+    this._logs.log(`reported isReady with result ${base.repoType} and ${base.error}`);
     return base;
   }
 

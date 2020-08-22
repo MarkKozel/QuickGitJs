@@ -1,4 +1,4 @@
-//Logs repo intereaction 
+//Logs repo interactions 
 class Logger {
 
   constructor() {

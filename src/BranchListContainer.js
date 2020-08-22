@@ -81,7 +81,7 @@ class BranchListContainer {
       cmd = `git --git-dir=${path}/.git checkout -b ${branchName}`;
     }
 
-    const branch = git.execute(cmd, path);
+    const branch = this._git.execute(cmd, path);
     return 'ok';
   }
   /**

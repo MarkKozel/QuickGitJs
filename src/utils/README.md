@@ -46,7 +46,7 @@ Singleton class that executes systems call(s) to git
 ```javascript
 const git = require("./utils/gitUtils");
 ```
-**Instanciate object for use**
+**Instantiate object for use**
 ```javascript
 this._git = new git();
 ```
