@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Home</title>
+    <title>JSDoc: Source: utils/gitUtils.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,32 +17,54 @@
 
 <div id="main">
 
-    <h1 class="page-title">Home</h1>
+    <h1 class="page-title">Source: utils/gitUtils.js</h1>
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const { execSync } = require('child_process');
 
+class git {
+  constructor() {
+    if (!git._instance) {
+      this.lastCmd = null;
+      this.lastResult = null;
+      this.lastError = null;
 
-    <h3> </h3>
+      git._instance = this;
+    } else {
+      return git._instance
+    }
+  }
 
+  /**
+   * Makes system call to git
+   * @param {string} cmd - git command
+   * @param {string} path - optional path
+   * @returns {string} results of git call
+   */
+  execute(cmd, path = '') {
+    this.lastCmd = cmd;
+    this.lastResult = execSync(this.lastCmd,
+      {
+        timeout: 5000,
+        encoding: 'utf8',
+        maxBuffer: 1024 * 10,
+        cwd: null
+      });
+    return this.lastResult;
+  }
+}
 
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
+if (typeof module !== "undefined" &amp;&amp; typeof module.exports !== "undefined") {
+  module.exports = git;
+}</code></pre>
+        </article>
+    </section>
 
 
 

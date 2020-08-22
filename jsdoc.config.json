@@ -3,12 +3,12 @@
   "recurseDepth": 10,
   "source": {
     "include": [
-      ".",
       "./src/StatusContainer.js",
       "./src/BranchListContainer.js",
       "./src/RepoContainer.js",
       "./src/WorkingContainer.js",
-      "./src/utils/fileUtils.js"
+      "./src/utils/fileUtils.js",
+      "./src/utils/gitUtils.js"
     ],
     "exclude": [
       "./node_modules",
