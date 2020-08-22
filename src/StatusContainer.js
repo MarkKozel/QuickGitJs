@@ -1,4 +1,4 @@
-const { execSync } = require('child_process');
+const git = require("./utils/gitUtils");
 
 /**
  * Used my Repo and Working containers to manage and process repo status info
@@ -13,6 +13,7 @@ class StatusContainer {
     if (rawStatus) {
       this.cleanStatus()
     }
+    this._git = new git();
   }
 
   /**
@@ -46,8 +47,7 @@ class StatusContainer {
     } else {
       cmd = `git --git-dir=${path}/.git status`;
     }
-    const status = execSync(cmd);
-    this.rawStatus = status;
+    this.rawStatus = this._git.execute(cmd);
     return this.rawStatus;
   }
 

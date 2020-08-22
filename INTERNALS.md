@@ -29,7 +29,7 @@ Returns from system calls to git is kinda messy. This class exists to hide that 
 |**getShortStatus(path)**|Public method to request short status. Updfates status from repo||
 |**shortStatusToString()**|Pretty print of current short status|Pretty print of current short status|
 
- ## utils/gitUtils
+ ## utils/gitUgit add tils
 Singleton class that executes systems call(s) to git
 
 **Member Variable:**

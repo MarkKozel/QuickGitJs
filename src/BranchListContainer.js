@@ -1,5 +1,4 @@
-const { execSync } = require('child_process');
-
+const git = require("./utils/gitUtils");
 /**
  * Used by Repo and Working containers to manage and process branch lists
  * Returns from system calls to git is kinda messy. This class exists to hide that messiness
@@ -14,6 +13,7 @@ class BranchListContainer {
       this.rawList = rawList;
       this.cleanList()
     }
+    this._git = new git();
   }
 
   /**
@@ -56,7 +56,7 @@ class BranchListContainer {
    */
   retrieveBranchList(path) {
     let cmd = `git --git-dir=${path}/.git branch`;
-    const branchList = execSync(cmd);
+    const branchList = this._git.execute(cmd);
     this.updateList(branchList);
     return branchList;
   }
@@ -73,7 +73,7 @@ class BranchListContainer {
     if (this.getCurrentBranch() === branchName) {
       return 'already there';
     }
-    let exists = this._branchExists(branchName);
+    let exists = this.branchExists(branchName);
 
     if (exists) {
       cmd = `git --git-dir=${path}/.git checkout ${branchName}`;
@@ -81,7 +81,7 @@ class BranchListContainer {
       cmd = `git --git-dir=${path}/.git checkout -b ${branchName}`;
     }
 
-    const branch = execSync(cmd);
+    const branch = git.execute(cmd, path);
     return 'ok';
   }
   /**
