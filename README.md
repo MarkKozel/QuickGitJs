@@ -70,11 +70,9 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 - Add Fetch and Pull
 
 ### Version History
-1.1.1 - Moved to GitHub, like all the cool kids
+1.1.2 - Cleanup, gitUtils singleton, and switch to Documentation pkg and dumped JSDoc
 
 1.1.0 - initial *release* with basic Working Folder/Local Repo functionality (get branch info, short status, checkout branch)
-
-1.0.x - Implement classes to read working repos for current branch
 
 ### Historical Context
 World in knee-deep in a global pandemic, protests and riots opposing entrenched govenments (including the US), Webster's Dictionary is expected to retire the words *unprecedented times* (not really, but I wish), The US sits at the brink of massive change or realizing orwell's vision, and I sit coughing in my office as California burns...yet again
