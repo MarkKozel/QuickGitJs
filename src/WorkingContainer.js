@@ -82,7 +82,17 @@ class WorkingContainer extends RepoContainer {
    */
   getStatus() {
     this._statusObj.getShortStatus(this._path);
+    this._logs.log(`Requested status`);
     return this._statusObj.shortStatusToString()
+  }
+
+  getSimpleCommit(){
+    this._logs.log(`Requested simple commit history`);
+    return this._commitObj.getLastCommit(true, false);
+  }
+  getSimpleCommitJson(){
+    this._logs.log(`Requested simple json commit history`);
+    return this._commitObj.getLastCommit(true, true);
   }
 }
 

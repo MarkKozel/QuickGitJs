@@ -3,6 +3,7 @@ const path = require("path");
 const findTextInFile = require("./utils/fileUtils").findTextInFile;
 const BranchListContainer = require("./BranchListContainer");
 const StatusContainer = require("./StatusContainer");
+const CommitContainer = require("./CommitContainer");
 const Logger = require('./Logger');
 
 /**
@@ -22,6 +23,7 @@ class RepoContainer {
 
     this._branchList = new BranchListContainer();
     this._statusObj = new StatusContainer();
+    this._commitObj = new CommitContainer(this._path);
     this._logs = new Logger();
 
     this._logs.log("created");
