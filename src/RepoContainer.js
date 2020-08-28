@@ -14,7 +14,7 @@ const Logger = require('./Logger');
 class RepoContainer {
   constructor(path, readOnly = true) {
     this._path = path;
-    this._readOnly = readOnly;
+    this.setReadonly(readOnly);
     this._error = null; //null if ok, text message otherwise
     this._imA = null; //'working', 'remote', or null
 
@@ -27,6 +27,18 @@ class RepoContainer {
     this._logs = new Logger();
 
     this._logs.log("created");
+  }
+
+  /**
+   * Sets/resets readonly flag. if not boolean, sets readonly to false
+   * @param {boolean} newState new state for readonly flag
+   */
+  setReadonly(newState) {
+    if (typeof newState === 'boolean') {
+      this._readOnly = newState
+    } else {
+      this._readOnly = false
+    }
   }
 
   /**
@@ -59,10 +71,10 @@ class RepoContainer {
   }
 
   isReady() {
-    return {repoType: this._imA, error: this._error};
+    return { repoType: this._imA, error: this._error };
   }
 
-  getLog(){
+  getLog() {
     return this._logs.getPrettyLogs()
   }
 }

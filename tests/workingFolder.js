@@ -19,11 +19,28 @@ const git = require('../src/utils/gitUtils');
 //   console.log(repoCont2.getLog())
 // }
 
-let repoCont3 = new WorkingContainer(path.join(getProjRoot(), "tests", "zz_TestingRepos", "working1"), true);
+let repoCont3 = new WorkingContainer(path.join(getProjRoot(), "tests", "zz_TestingRepos", "workingRepo1"), false);
 if (repoCont3.isReady()) {
   console.log(repoCont3.getCurrentBranch())
-  console.log(repoCont3.checkoutBranch('br1'));
+  console.log(repoCont3.checkoutBranch('master'));
   console.log(repoCont3.getCurrentBranch());
+
+  console.log(repoCont3.checkoutBranch('branch1'));
+  console.log(repoCont3.getCurrentBranch());
+
+  console.log(repoCont3.checkoutBranch('master'));
+  console.log(repoCont3.getCurrentBranch());
+
+  console.log(repoCont3.checkoutBranch('branch2'));
+  console.log(repoCont3.getCurrentBranch());
+
+  console.log(repoCont3.checkoutBranch('master'));
+  console.log(repoCont3.getCurrentBranch());
+
+  repoCont3.setReadonly(true);
+  console.log(repoCont3.checkoutBranch('notABranch'));
+  console.log(repoCont3.getCurrentBranch());
+
   console.log(repoCont3.getStatus())
   console.log(repoCont3.getSimpleCommit());
   console.log(repoCont3.getSimpleCommitJson());

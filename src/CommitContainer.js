@@ -31,7 +31,6 @@ class CommitContainer {
     }
     return result;
   }
-
 }
 
 if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
