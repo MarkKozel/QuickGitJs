@@ -46,6 +46,8 @@ if (repoCont3.isReady()) {
   console.log(repoCont3.getSimpleCommitJson());
 
   console.log(repoCont3.getLog())
+
+  console.log(repoCont3.getRepoName())
 }
 
 // gitSingleton = new git();

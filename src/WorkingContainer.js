@@ -10,14 +10,16 @@ const path = require("path");
  */
 class WorkingContainer extends RepoContainer {
 
-  constructor(path, readOnly = true) {
-    super(path, readOnly);
+  constructor(repoPath, readOnly = true) {
+    super(repoPath, readOnly);
 
     if (this._imA !== 'working') {
       this._error = 'not a valid working repo'
       if (this._imA === 'remote') {
         this._error += '. Looks like a remote repo'
       }
+    } else {
+      this._repoName = path.basename(repoPath);
     }
   }
 
@@ -29,6 +31,10 @@ class WorkingContainer extends RepoContainer {
     let base = super.isReady();
     this._logs.log(`reported isReady with result ${base.repoType} and ${base.error}`);
     return base;
+  }
+
+  getRepoName(){
+    return this._repoName;
   }
 
   /**

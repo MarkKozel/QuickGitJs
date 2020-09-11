@@ -34,6 +34,7 @@ if (repo.isReady()) {
   console.log("Checkout:\n" + repo.checkoutBranch('br1'));
   console.log("Status:\n" + repo.getStatus())
   console.log("Log:\n" + repo.getLog())
+  console.log("Log:\n" + repo.getRepoName())
 }
 ```
 Output:
@@ -58,6 +59,8 @@ Log:
 created
 repotered isReady with result working and null
 Checked out br1 with result path/to/repo was opened read-only
+
+myRepoName
 ```
 ## License:
 [CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
@@ -70,6 +73,9 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 - Add Fetch and Pull
 
 ### Version History
+
+1.1.3 - Added getRepoName() in WorkingContainer class
+
 1.1.2 - Cleanup, gitUtils singleton, and switch to Documentation pkg and dumped JSDoc
 
 1.1.0 - initial *release* with basic Working Folder/Local Repo functionality (get branch info, short status, checkout branch)
