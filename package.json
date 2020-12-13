@@ -1,6 +1,6 @@
 {
   "name": "quickgitjs",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Simple JavaScript node package for interacting with local git repositories",
   "main": "index.js",
   "homepage": "https://github.com/MarkKozel/quickgitjs#readme",
@@ -24,11 +24,9 @@
   "license": "CC-BY-NC-SA-4.0",
   "scripts": {
     "test": "jest tests",
-    "testWatch": "jest tests --watchAll",
-    "docs": "node_modules/documentation/bin/documentation.js build --format html --output docs --project-name 'Quick Git Js' --project-description 'Simple JavaScript node package for interacting with local working git repositories' --project-homepage 'https://www.npmjs.com/package/quickgitjs'"
+    "testWatch": "jest tests --watchAll"
   },
   "devDependencies": {
-    "documentation": "^13.0.2",
-    "jest": "^26.4.0"
+    "jest": "^26.6.3"
   }
 }

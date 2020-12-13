@@ -73,6 +73,7 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 - Add Fetch and Pull
 
 ### Version History
+1.1.4 - Removed Documentation dev dependency due to security issues
 
 1.1.3 - Added getRepoName() in WorkingContainer class
 
