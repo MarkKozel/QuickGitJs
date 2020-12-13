@@ -81,5 +81,7 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 
 1.1.0 - initial *release* with basic Working Folder/Local Repo functionality (get branch info, short status, checkout branch)
 
+<a href="https://www.buymeacoffee.com/MarkKozel" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
+
 ### Historical Context
 World in knee-deep in a global pandemic, protests and riots opposing entrenched governments (including the US), Webster's Dictionary is expected to retire the words *unprecedented times* (not really, but I wish), The US sits at the brink of massive change or realizing orwell's vision, and I sit coughing in my office as California burns...yet again
