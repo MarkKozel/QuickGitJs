@@ -11,18 +11,15 @@ Simple JavaScript node package for interacting with local working git repositori
 
 ### Require:
 ```javascipt
-const quickGitJs = require('quickgitjs')
-```
-```javascipt
-const WorkingContainer = require('quickgitjs').WorkingContainer
+const { WorkingContainer } = require('quickgitjs')
+const { RemoteContainer } = require('quickgitjs')
 ```
 ### Instate object:
 ```javascipt
-let repo = new quickGitJs.WorkingContainer(path, readOnly);
-```
-```javascipt
 let repo = new WorkingContainer(path, readOnly);
+let repo = new RemoteContainer(path, readOnly);
 ```
+
 **arguments:**
 - dir - {string} path to working directory (contains working files and *.git* folder)
 - readOnly - {boolean} prevent/allow update operations, like commit, tag, checkout
@@ -62,6 +59,50 @@ Checked out br1 with result path/to/repo was opened read-only
 
 myRepoName
 ```
+## What's New
+```quickgitConfig.js``` allows user to create custom git commands for *working* and *remote* objects. Commands are added to the *WorkingContainer* and *RemoteContainer* classes, and present in all instances.
+
+### Example
+
+**quickgitConfig.js**
+``` js 
+module.exports = {
+  working: [
+    { name: 'myStatus', cmd: 'git status' }
+  ],
+
+  remote: [
+  ]
+}
+```
+**User Code**
+``` js
+const { WorkingContainer } = require('quickgitjs')
+
+let repo = new WorkingContainer(path, readOnly);
+let result = repo.myStatus();
+console.log(result);
+```
+
+**Console Output**
+```bash
+On branch master
+    Your branch is up to date with 'origin/master'.·
+    Changes not staged for commit:
+      (use \"git add <file>...\" to update what will be committed)
+      (use \"git restore <file>...\" to discard changes in working directory)
+        modified:   src/RemoteContainer.js
+        modified:   src/WorkingContainer.js
+        modified:   tests/RemoteContainer.test.js
+        modified:   tests/WorkingContainer.test.js·
+    Untracked files:
+      (use \"git add <file>...\" to include in what will be committed)
+        quickgitConfig.js·
+    no changes added to commit (use \"git add\" and/or \"git commit -a\")
+```
+
+
+
 ## License:
 [CC-BY-NC-SA-4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 Attribution-NonCommercial-ShareAlike 4.0 International
@@ -73,6 +114,8 @@ Attribution-NonCommercial-ShareAlike 4.0 International
 - Add Fetch and Pull
 
 ### Version History
+2.0.0-alpha01 - Started a RemoteContainer class. converted exports to module.exports for cleaner importing. Added ```quickgitConfig.js``` to define custom commands.
+
 1.1.4 - Removed Documentation dev dependency due to security issues
 
 1.1.3 - Added getRepoName() in WorkingContainer class
