@@ -13,7 +13,7 @@ describe("inheritence verification", () => {
     expect(working._imA).toBeNull();
     expect(working._error).toBe("null is not a valid repo");
 
-    let working1 = new repoContainer(__dirname + "/zz_TestingRepos/working1");
+    let working1 = new repoContainer(__dirname + "/zz_TestingRepos/workingRepo1");
     expect(working1._imA).toBe('working');
     expect(working1._error).toBeNull();
   });

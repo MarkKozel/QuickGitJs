@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const findTextInFile = require("./utils/fileUtils").findTextInFile;
+const { findTextInFile } = require("./utils/fileUtils");
 const BranchListContainer = require("./BranchListContainer");
 const StatusContainer = require("./StatusContainer");
 const CommitContainer = require("./CommitContainer");

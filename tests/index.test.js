@@ -1,16 +1,20 @@
 const path = require('path');
-const QuickGIT = require('../index');
+const { WorkingContainer } = require('../index');
+const { RemoteContainer } = require('../index');
 
-describe('instate test', ()=> {
-  test('requires', () => {
-    expect(QuickGIT).not.toBeNull();
+describe('instate test', () => {
+  test('WorkingContainer requires', () => {
+    expect(WorkingContainer).not.toBeNull();
+  });
+  test('RemoteContainer requires', () => {
+    expect(RemoteContainer).not.toBeNull();
   });
 
-  test('quickgit', () => {
-    expect(QuickGIT.quickgit()).not.toBeNull();
-  })
+  // test('quickgit', () => {
+  //   expect(WorkingContainer.quickgit()).not.toBeNull();
+  // })
 
-  test('workingDir', () => {
-    expect(QuickGIT.workingDir()).not.toBeNull();
-  })
+  // test('workingDir', () => {
+  //   expect(WorkingContainer.workingDir()).not.toBeNull();
+  // })
 });
