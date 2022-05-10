@@ -1,4 +1,6 @@
 const RepoContainer = require('./RepoContainer');
+const git = require("./utils/gitUtils");
+const config = require('../quickgitConfig');
 
 const fs = require("fs");
 const path = require("path");
@@ -9,7 +11,6 @@ const path = require("path");
  * @param {boolean} readOnly - flag to allow or prevent updates to this repo
  */
 class RemoteContainer extends RepoContainer {
-
   constructor(repoPath, readOnly = true) {
     super(repoPath, readOnly);
 
@@ -20,6 +21,16 @@ class RemoteContainer extends RepoContainer {
       }
     } else {
       this._repoName = path.basename(repoPath);
+    }
+
+    this._git = new git();
+
+    if (config.remote && config.remote.length > 0) {
+      config.remote.forEach(el => {
+        this[el.name] = function () {
+          return this._git.execute(el.cmd);
+        }
+      });
     }
   }
 }

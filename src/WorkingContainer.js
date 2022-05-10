@@ -1,4 +1,6 @@
 const RepoContainer = require('./RepoContainer');
+const git = require("./utils/gitUtils");
+const config = require('../quickgitConfig');
 
 const fs = require("fs");
 const path = require("path");
@@ -21,6 +23,16 @@ class WorkingContainer extends RepoContainer {
     } else {
       this._repoName = path.basename(repoPath);
     }
+
+    this._git = new git();
+
+    if (config.working && config.working.length > 0) {
+      config.working.forEach(el => {
+        this[el.name] = function () {
+          return this._git.execute(el.cmd);
+        }
+      });
+    }
   }
 
   /**
@@ -33,7 +45,7 @@ class WorkingContainer extends RepoContainer {
     return base;
   }
 
-  getRepoName(){
+  getRepoName() {
     return this._repoName;
   }
 
@@ -92,11 +104,11 @@ class WorkingContainer extends RepoContainer {
     return this._statusObj.shortStatusToString()
   }
 
-  getSimpleCommit(){
+  getSimpleCommit() {
     this._logs.log(`Requested simple commit history`);
     return this._commitObj.getLastCommit(true, false);
   }
-  getSimpleCommitJson(){
+  getSimpleCommitJson() {
     this._logs.log(`Requested simple json commit history`);
     return this._commitObj.getLastCommit(true, true);
   }

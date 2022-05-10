@@ -20,5 +20,6 @@ describe("inheritance verification", () => {
     let remote1 = new RemoteContainer(__dirname + "/zz_TestingRepos/remoteRepo1.git");
     expect(remote1._imA).toBe('remote');
     expect(remote1._error).toBeNull();
+    expect(remote1.myStatus()).not.toBeNull();
   })
 })

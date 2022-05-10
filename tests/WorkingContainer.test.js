@@ -16,6 +16,7 @@ describe("inheritance verification", () => {
     let working1 = new WorkingContainer(__dirname + "/zz_TestingRepos/workingRepo1");
     expect(working1._imA).toBe('working');
     expect(working1._error).toBeNull();
+    expect(working1.myStatus()).not.toBeNull();
 
     let remote1 = new WorkingContainer(__dirname + "/zz_TestingRepos/remoteRepo1.git");
     expect(remote1._imA).toBe('remote');
