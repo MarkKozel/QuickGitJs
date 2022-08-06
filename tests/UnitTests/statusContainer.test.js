@@ -1,11 +1,13 @@
-const stContainer = require("../src/StatusContainer");
+const path = require('path');
+const { srcPath } = require('./config.js');
+const statusContainer = require(path.join(srcPath, 'StatusContainer'));
 
-const fileUtils = require("../src/utils/fileUtils").getProjRoot;
+console.log(statusContainer);
 
 describe("instate class", () => {
   test("simple new", () => {
-    let stCont = new stContainer();
-    expect(stCont).toBeInstanceOf(stContainer);
+    let stCont = new statusContainer();
+    expect(stCont).toBeInstanceOf(statusContainer);
     expect(stCont.rawList).toBeUndefined();
     expect(stCont.short).toBeTruthy();
     expect(stCont.shortStatus).toBe(null);
@@ -13,8 +15,8 @@ describe("instate class", () => {
   });
 
   test("w/ params", () => {
-    let stCont = new stContainer('', false);
-    expect(stCont).toBeInstanceOf(stContainer);
+    let stCont = new statusContainer('', false);
+    expect(stCont).toBeInstanceOf(statusContainer);
     expect(stCont.rawList).toBeUndefined();
     expect(stCont.short).toBeFalsy();
     expect(stCont.shortStatus).toBe(null);

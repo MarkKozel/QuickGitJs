@@ -4,7 +4,7 @@ const { findTextInFile } = require("./utils/fileUtils");
 const BranchListContainer = require("./BranchListContainer");
 const StatusContainer = require("./StatusContainer");
 const CommitContainer = require("./CommitContainer");
-const Logger = require('./Logger');
+const { Logger } = require('./Logger');
 
 /**
  * @constructor
@@ -79,6 +79,4 @@ class RepoContainer {
   }
 }
 
-if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-  module.exports = RepoContainer;
-}
+module.exports = RepoContainer;

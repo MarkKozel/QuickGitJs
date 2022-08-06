@@ -1,4 +1,4 @@
-const git = require("./utils/gitUtils");
+const { git } = require("./utils/gitUtils");
 
 /**
  * Used my Repo and Working containers to manage and process repo status info
@@ -78,7 +78,4 @@ class StatusContainer {
   }
 }
 
-
-if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-  module.exports = StatusContainer;
-}
+module.exports = StatusContainer;

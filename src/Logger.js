@@ -39,6 +39,4 @@ class Logger {
   }
 }
 
-if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-  module.exports = Logger;
-}
+module.exports = { Logger };

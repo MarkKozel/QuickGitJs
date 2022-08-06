@@ -1,5 +1,5 @@
 const RepoContainer = require('./RepoContainer');
-const git = require("./utils/gitUtils");
+const { git } = require("./utils/gitUtils");
 const config = require('../quickgitConfig');
 
 const fs = require("fs");
@@ -114,6 +114,4 @@ class WorkingContainer extends RepoContainer {
   }
 }
 
-if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-  module.exports = WorkingContainer;
-}
+module.exports = WorkingContainer;

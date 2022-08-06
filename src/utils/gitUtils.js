@@ -32,6 +32,4 @@ class git {
   }
 }
 
-if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-  module.exports = git;
-}
+module.exports = { git };

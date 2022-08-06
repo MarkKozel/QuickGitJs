@@ -1,4 +1,4 @@
-const git = require("./utils/gitUtils");
+const { git } = require("./utils/gitUtils");
 /**
  * Used by Repo and Working containers to manage and process branch lists
  * Returns from system calls to git is kinda messy. This class exists to hide that messiness
@@ -108,6 +108,4 @@ class BranchListContainer {
   }
 }
 
-if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-  module.exports = BranchListContainer;
-}
+module.exports = BranchListContainer;

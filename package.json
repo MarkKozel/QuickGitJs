@@ -24,7 +24,7 @@
   "license": "CC-BY-NC-SA-4.0",
   "scripts": {
     "test": "jest tests",
-    "testWatch": "jest tests --watchAll"
+    "testWatch": "jest tests --no-cache --watchAll"
   },
   "devDependencies": {
     "jest": "^28.1"
