@@ -1,8 +1,16 @@
 //Logs repo interactions 
-class Logger {
+class logger {
 
   constructor() {
     this.logs = [];
+
+    if (!logger._instance) { //singleton
+      this.logs = [];
+
+      logger._instance = this;
+    } else {
+      return logger._instance
+    }
   }
 
   /**
@@ -39,4 +47,4 @@ class Logger {
   }
 }
 
-module.exports = { Logger };
+export { logger };
