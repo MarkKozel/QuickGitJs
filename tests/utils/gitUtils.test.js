@@ -1,5 +1,4 @@
 import { git } from '../../src/utils/gitUtils.js';
-import path from 'path';
 
 test('GitUtils Constructor', () => {
   expect(git).toBeDefined();
