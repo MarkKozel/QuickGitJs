@@ -1,4 +1,3 @@
-// const { findTextInFile } = require("../../src/utils/fileUtils");
 import { findTextInFile, getProjRoot } from '../../src/utils/fileUtils.js';
 import path from 'path';
 
