@@ -2,6 +2,7 @@
   "name": "quickgitjs",
   "version": "2.0.1-alpha01",
   "description": "Simple JavaScript node package for interacting with local git repositories",
+  "type": "module",
   "main": "index.js",
   "homepage": "https://github.com/MarkKozel/quickgitjs#readme",
   "repository": {
@@ -19,14 +20,18 @@
   ],
   "author": {
     "name": "Mark Kozel",
-    "email": "markkozel_dev@protonmail.com"
+    "email": "markkozel+dev@fastmail.com"
   },
   "license": "CC-BY-NC-SA-4.0",
   "scripts": {
-    "test": "jest tests",
-    "testWatch": "jest tests --no-cache --watchAll"
+    "test": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --config=jest.config.cjs --no-cache",
+    "testWatch": "node --experimental-vm-modules ./node_modules/jest/bin/jest.js --config=jest.config.cjs --no-cache --watchAll"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/node": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "babel-jest": "^29.0.2",
     "jest": "^28.1"
   }
 }
