@@ -1,8 +1,8 @@
-const { execSync } = require('child_process');
+import { execSync } from 'child_process';
 
 class git {
   constructor() {
-    if (!git._instance) {
+    if (!git._instance) { //singleton
       this.lastCmd = null;
       this.lastResult = null;
       this.lastError = null;
@@ -32,4 +32,4 @@ class git {
   }
 }
 
-module.exports = { git };
+export { git };
