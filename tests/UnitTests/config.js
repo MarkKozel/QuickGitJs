@@ -1,5 +1,5 @@
-const path = require('path');
-const { getProjRoot } = require("../../src/utils/fileUtils");
+import path from 'path';
+import { getProjRoot } from '../../src/utils/fileUtils';
 const rootPath = getProjRoot();
 
 const testUtilsPath = path.join(rootPath, 'tests', 'utils');
@@ -8,4 +8,4 @@ const utilsPath = path.join(rootPath, 'src', 'utils');
 const testRepoPath = path.join(rootPath, 'tests', 'zz_TestingRepos');
 
 
-module.exports = { testUtilsPath, srcPath, utilsPath, testRepoPath };
+export { testUtilsPath, srcPath, utilsPath, testRepoPath };

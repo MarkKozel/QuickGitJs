@@ -1,4 +1,4 @@
-const { git } = require("./utils/gitUtils");
+import { git } from './utils/gitUtils.js';
 
 /**
  * Used my Repo and Working containers to manage and process repo status info
@@ -10,28 +10,34 @@ class StatusContainer {
     this.shortStatus = null;
     this.status = null;
     this.short = short;
-    if (rawStatus) {
-      this.cleanStatus()
+    if (this.rawStatus) {
+      this.parseStatus()
     }
     this._git = new git();
   }
 
   /**
    * Translates raw Git output into string and determines the current status
+   * @param {string} [rawStatus=this.rawStatus] - raw output from git
+   * @param {boolean} [updateLocal=true] - updates this.shortStatus when true
+   * @returns {array} array of objects, containing 'state' and 'file' elements
    */
-  cleanStatus() {
-    this.shortStatus = {};
+  parseStatus(rawStatus = this.rawStatus, updateLocal = true) {
+    let newStatus = [];
 
-    let statusArray = this.rawStatus.toString().split('\n');
-    for (let i = 0; i < statusArray.length; i++) {
+    let statusArray = rawStatus.toString().split('\n');
+    for (let i = 0, len = statusArray.length; i < len; i++) {
       let curStatus = statusArray[i].toString();
       if (curStatus) {
         curStatus = curStatus.toString().trim();
         let parts = curStatus.split(' ');
-        this.shortStatus[i] = ({ state: parts[0], file: parts[1] })
+        newStatus.push({ state: parts[0], file: parts[1] });
       }
     }
-    return this.shortStatus;
+    if (updateLocal) {
+      this.shortStatus = newStatus;
+    }
+    return newStatus;
   }
 
   /**
@@ -42,6 +48,10 @@ class StatusContainer {
    */
   retrieveStatus(path, short = true) {
     let cmd = null;
+    if (!path) {
+      return false;
+    }
+
     if (short) {
       cmd = `git --git-dir=${path}/.git status --short`;
     } else {
@@ -57,8 +67,12 @@ class StatusContainer {
    * @returns short status
    */
   getShortStatus(path) {
+    if (!path) {
+      return false;
+    }
+
     this.retrieveStatus(path, true);
-    this.shortStatus = this.cleanStatus();
+    this.shortStatus = this.parseStatus();
 
     return this.shortStatus;
   }
@@ -78,4 +92,4 @@ class StatusContainer {
   }
 }
 
-module.exports = StatusContainer;
+export { StatusContainer };
